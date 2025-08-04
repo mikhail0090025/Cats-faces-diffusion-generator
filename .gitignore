@@ -1,0 +1,3 @@
+*.pyc
+diffusion_model/diffusion_process.gif
+diffusion_model/generated.png

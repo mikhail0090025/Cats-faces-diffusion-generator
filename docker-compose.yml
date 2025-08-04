@@ -1,0 +1,28 @@
+services:
+  diffusion_model:
+    build:
+      context: .
+      dockerfile: diffusion_model/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - PYTHONUNBUFFERED=1
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+      - PYTHONUNBUFFERED=1
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
