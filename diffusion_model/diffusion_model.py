@@ -424,7 +424,7 @@ class DiffusionModel(nn.Module):
 
 # Load model
 model_load_path = 'diffusion_model_64x64.pth'
-model = DiffusionModel(image_size, [32, 64, 128], 2).to(device)
+model = DiffusionModel(image_size, [32, 64, 128, 256], 3).to(device)
 model.load_state_dict(torch.load(model_load_path, map_location=device))
 
 print(f"Model loaded successfully from {model_load_path}")
