@@ -17,14 +17,14 @@ async def image_endpoint():
     diffusion_steps = 50
     power = 0.3
     with torch.no_grad():
-        dm.model.plot_images(num_rows=7, num_cols=7, power=power, diffusion_steps=diffusion_steps)
+        dm.model.plot_images(num_rows=1, num_cols=3, power=power, diffusion_steps=diffusion_steps)
 
     return FileResponse("generated.png", media_type="image/png")
 
 @app.get("/gif_generate")
 async def gif_image_endpoint():
     num_images = 1
-    diffusion_steps = 100
+    diffusion_steps = 50
     power = 0.3
     with torch.no_grad():
         initial_noise = torch.randn((num_images, 3, dm.image_size, dm.image_size))

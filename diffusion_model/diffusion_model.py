@@ -301,6 +301,7 @@ class DiffusionModel(nn.Module):
         next_noisy_images = initial_noise.to(device)  # Move initial noise to GPU
 
         for step in range(diffusion_steps):
+            print(f"Step {step} / {diffusion_steps}")
             noisy_images = next_noisy_images
 
             diffusion_times = torch.ones((num_images, 1, 1, 1), device=device) - step * step_size # Move diffusion_times to GPU
@@ -332,6 +333,7 @@ class DiffusionModel(nn.Module):
         frames = []
 
         for step in range(diffusion_steps):
+            print(f"GIF Step {step} / {diffusion_steps}")
             noisy_images = next_noisy_images
 
             diffusion_times = torch.ones((num_images, 1, 1, 1), device=device) - step * step_size
